@@ -13165,7 +13165,23 @@ video {
 html,
 body {
   font-family: 'Open Sans',
+    Helvetica,
+    Arial,
     sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#page-window {
+  transition: all .15s ease-in-out;
+}
+
+#page-window.with-sidebar-left {
+  margin-left: var(--sidebar-width);
+}
+
+#page-window.with-sidebar-right {
+  margin-right: var(--sidebar-width);
 }
 
 .App {

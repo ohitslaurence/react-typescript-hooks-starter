@@ -1,0 +1,11 @@
+#page-window {
+  transition: all .15s ease-in-out;
+}
+
+#page-window.with-sidebar-left {
+  margin-left: var(--sidebar-width);
+}
+
+#page-window.with-sidebar-right {
+  margin-right: var(--sidebar-width);
+}
