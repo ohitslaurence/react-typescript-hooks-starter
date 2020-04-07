@@ -7,12 +7,19 @@ type SideBarProps = {
    */
   orientation?: 'left' | 'right';
 
+  /**
+   * The children of the sidebar component
+   */
   children?: React.ReactNode;
 };
 
 export const SideBar: React.FunctionComponent<SideBarProps> = ({
   orientation = 'left',
+  children,
 }: SideBarProps) => {
+  /**
+   * When the sidebar is mounted, add the appropriate class to the main body window
+   */
   useEffect(() => {
     const page = document.getElementById('page-window');
 
@@ -22,8 +29,14 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
     };
   }, [orientation]);
 
-  const orientationClass: string = 'px-0 fixed block inset-y-0 pl-0 overflow-y-auto';
+  /**
+   * The classes added to give the sidebar its layout
+   */
+  const layoutClass: string = 'px-0 fixed block inset-y-0 pl-0 overflow-y-auto';
 
+  /**
+   * Classes to fix the component to the side of the page
+   */
   const fixedClass: string = `${orientation}-0 fixed`;
   /**
    * Render the SideBar component
@@ -32,11 +45,9 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
     <nav
       className={`pb-4 ${
         styles.sidebar
-      } ${orientationClass} bg-primary-background z-50 ${`fixed-${orientation}`} ${fixedClass}`}
+      } ${layoutClass} bg-primary-background z-50 ${`fixed-${orientation}`} ${fixedClass}`}
     >
-      <div className="h-screen">
-        <slot />
-      </div>
+      <div className="h-screen">{children}</div>
     </nav>
   );
 };

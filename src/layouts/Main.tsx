@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
-import { SideBar } from '../components/library';
+import { SideBar, RouteMenuItem } from '../components/library';
 
 interface MainProps extends RouteComponentProps {
   children?: React.ReactNode;
@@ -14,7 +14,10 @@ interface MainProps extends RouteComponentProps {
 export const Main: React.FunctionComponent<MainProps> = ({ children }: MainProps) => {
   return (
     <div className="main-layout">
-      <SideBar />
+      <SideBar>
+        <RouteMenuItem name="Dashboard" path="/" />
+        <RouteMenuItem name="Components" path="/components" />
+      </SideBar>
       <div id="page-window" className="bg-sec-background fixed inset-0 overflow-auto">
         {children}
       </div>
