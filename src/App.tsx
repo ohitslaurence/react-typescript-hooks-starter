@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import { Page } from './components/library/Page';
 import { Button } from './components/library/Button';
+import { Input } from './components/library/Input';
 import { setTheme } from './utils/theme';
 import './App.css';
 
 function App() {
+  const [email, setEmail] = useState('');
   useEffect(() => {
     setTheme('default');
   });
@@ -27,6 +29,13 @@ function App() {
             Learn React
           </a>
           <Button>Test</Button>
+          <Input
+            value={email}
+            onChange={(val) => {
+              setEmail(val);
+              console.log(val);
+            }}
+          />
         </Page>
       </header>
     </div>

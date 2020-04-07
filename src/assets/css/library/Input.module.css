@@ -1,0 +1,7 @@
+.inputGroup {
+  transition: all 0.25s ease-in-out;
+}
+
+.inputPrepend {
+  width: 50px;
+}
