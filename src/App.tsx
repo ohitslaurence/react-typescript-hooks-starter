@@ -11,7 +11,7 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <a
-          className="App-link"
+          className="App-link text-6xl"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
