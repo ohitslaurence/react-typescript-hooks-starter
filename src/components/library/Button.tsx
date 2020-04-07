@@ -89,7 +89,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   })();
 
   /**
-   * Determines the classes that modufy the border color of the button
+   * Determines the classes that modify the border color of the button
    *
    * @return {string}
    */
