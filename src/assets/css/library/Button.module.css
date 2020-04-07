@@ -1,6 +1,6 @@
 .btn {
   border: 1px solid transparent;
-  transition: all .15s ease;
+  transition: transform .15s ease;
   will-change: transform;
   line-height: 1.5;
 }

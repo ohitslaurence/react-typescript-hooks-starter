@@ -46,6 +46,9 @@ export const Input: React.FunctionComponent<InputProps> = ({
    */
   const inputClass: string = 'outline-none px-4 py-2 border border-solid flex-1';
 
+  /**
+   * The class to be added to the icon container if present
+   */
   const prependClass: string =
     'border border-solid rounded-l border-r-0 flex flex-row justify-center items-center';
 

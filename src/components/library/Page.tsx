@@ -2,8 +2,8 @@ import React from 'react';
 import styles from 'assets/css/library/Page.module.css';
 
 type PageProps = {
-  children: React.ReactNode;
-  banner: boolean;
+  children?: React.ReactNode;
+  banner?: boolean;
 };
 
 export const Page: React.FunctionComponent<PageProps> = ({
