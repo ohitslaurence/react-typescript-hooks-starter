@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
+import { useTranslation } from 'react-i18next';
 
 import styles from '../assets/css/pages/ComponentsPage.module.css';
 import { Page, Button, Card, DocumentTitle, useToast } from '../components/library';
@@ -7,47 +8,48 @@ import { Page, Button, Card, DocumentTitle, useToast } from '../components/libra
 export const ComponentsPage: React.FunctionComponent<RouteComponentProps> = (
   props: RouteComponentProps
 ) => {
+  const { t } = useTranslation();
   const { notifyError, notifySuccess, notifyWarning } = useToast();
   return (
-    <Page>
-      <DocumentTitle pageTitle="Components" />
+    <Page banner>
+      <DocumentTitle pageTitle={t('components.components')} />
 
       <div className="mb-6">
-        <Card header="Buttons">
+        <Card header={t('components.buttons')}>
           <div className={styles.buttonSeperator}>
-            <Button>Standard Button</Button>
-            <Button size="small">Small Button</Button>
-            <Button outline>Outline Button</Button>
-            <Button color="secondary">Secondary</Button>
+            <Button>{t('components.standard_button')}</Button>
+            <Button size="small">{t('components.small_button')}</Button>
+            <Button outline>{t('components.outline_button')}</Button>
+            <Button color="secondary">{t('components.secondary')}</Button>
             <Button outline color="secondary">
-              Secondary Outline
+              {t('components.secondary_outline')}
             </Button>
-            <Button color="tertiary">Tertiary</Button>
+            <Button color="tertiary">{t('components.tertiary')}</Button>
             <Button outline color="tertiary">
-              Tertiary Outline
+              {t('components.tertiary_outline')}
             </Button>
-            <Button color="info">Info</Button>
+            <Button color="info">{t('components.info')}</Button>
             <Button outline color="info">
-              Info Outline
+              {t('components.info_outline')}
             </Button>
-            <Button color="positive">Positive</Button>
+            <Button color="positive">{t('components.positive')}</Button>
             <Button outline color="positive">
-              Positive Outline
+              {t('components.positive_outline')}
             </Button>
-            <Button color="negative">Negative</Button>
+            <Button color="negative">{t('components.negative')}</Button>
             <Button outline color="negative">
-              Negative Outline
+              {t('components.negative_outline')}
             </Button>
-            <Button color="warning">Warning</Button>
+            <Button color="warning">{t('components.warning')}</Button>
             <Button outline color="warning">
-              Warning Outline
+              {t('components.warning_outline')}
             </Button>
           </div>
 
           <div className={styles.buttonSeperator}>
-            <Button icon="trash-alt">Icon Button</Button>
+            <Button icon="trash-alt">{t('components.icon_button')}</Button>
             <Button outline icon="trash-alt">
-              Icon Outline
+              {t('components.icon_outline')}
             </Button>
             <Button icon="paper-plane"></Button>
             <Button outline icon="paper-plane"></Button>
@@ -56,31 +58,28 @@ export const ComponentsPage: React.FunctionComponent<RouteComponentProps> = (
       </div>
 
       <div className="mb-6">
-        <Card header="Forms">
+        <Card header={t('components.forms')}>
           <Button>Test</Button>
         </Card>
       </div>
 
       <div className="mb-6">
-        <Card header="Toast Notifications">
+        <Card header={t('components.toast_notifications')}>
           <div className={styles.buttonSeperator}>
             <Button
               color="positive"
-              onClick={() => notifySuccess('The actions was performed successfully')}
+              onClick={() => notifySuccess(t('components.action_performed_successfully'))}
             >
-              Success Toast
+              {t('components.success_toast')}
             </Button>
             <Button
               color="negative"
-              onClick={() => notifyError('There was an error completing the action')}
+              onClick={() => notifyError(t('components.error_completing_action'))}
             >
-              Error Toast
+              {t('components.error_toast')}
             </Button>
-            <Button
-              color="warning"
-              onClick={() => notifyWarning('There could be an error if you proceed')}
-            >
-              Warning Toast
+            <Button color="warning" onClick={() => notifyWarning(t('components.action_warning'))}>
+              {t('components.warning_toast')}
             </Button>
           </div>
         </Card>

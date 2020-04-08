@@ -1,5 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
+import { useTranslation } from 'react-i18next';
+
 import { SideBar, RouteMenuItem } from '../components/library';
 
 interface MainProps extends RouteComponentProps {
@@ -12,12 +14,19 @@ interface MainProps extends RouteComponentProps {
  * Any providers that should not be exposed to public routes can go in here
  */
 export const Main: React.FunctionComponent<MainProps> = ({ children }: MainProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className="main-layout">
       <SideBar>
-        <RouteMenuItem name="Dashboard" path="/" icon="window-maximize" iconColor="primary" />
         <RouteMenuItem
-          name="Components"
+          name={t('components.dashboard')}
+          path="/"
+          icon="window-maximize"
+          iconColor="primary"
+        />
+        <RouteMenuItem
+          name={t('components.components')}
           path="/components"
           icon="puzzle-piece"
           iconColor="positive"
