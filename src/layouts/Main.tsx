@@ -15,8 +15,13 @@ export const Main: React.FunctionComponent<MainProps> = ({ children }: MainProps
   return (
     <div className="main-layout">
       <SideBar>
-        <RouteMenuItem name="Dashboard" path="/" />
-        <RouteMenuItem name="Components" path="/components" />
+        <RouteMenuItem name="Dashboard" path="/" icon="window-maximize" iconColor="primary" />
+        <RouteMenuItem
+          name="Components"
+          path="/components"
+          icon="puzzle-piece"
+          iconColor="positive"
+        />
       </SideBar>
       <div id="page-window" className="bg-sec-background fixed inset-0 overflow-auto">
         {children}

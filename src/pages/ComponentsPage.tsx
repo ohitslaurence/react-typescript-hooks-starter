@@ -38,6 +38,15 @@ export const ComponentsPage: React.FunctionComponent<RouteComponentProps> = (
               Warning Outline
             </Button>
           </div>
+
+          <div className={styles.buttonSeperator}>
+            <Button icon="trash-alt">Icon Button</Button>
+            <Button outline icon="trash-alt">
+              Icon Outline
+            </Button>
+            <Button icon="paper-plane"></Button>
+            <Button outline icon="paper-plane"></Button>
+          </div>
         </Card>
       </div>
 

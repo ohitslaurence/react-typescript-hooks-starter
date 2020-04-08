@@ -1,3 +1,10 @@
+/**
+ * Imports the fontawesome font library from /fonts/fontawesome
+ */
+@import '../fonts/fontawesome/css/fontawesome.min.css';
+@import '../fonts/fontawesome/css/regular.min.css';
+@import '../fonts/fontawesome/css/solid.min.css';
+
 @font-face {
   font-family: 'Open Sans';
   font-weight: 300;

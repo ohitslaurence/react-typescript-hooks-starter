@@ -1,4 +1,6 @@
 import React from 'react';
+import { isEmpty as _isEmpty } from 'lodash';
+import { Icon } from './Icon';
 import styles from 'assets/css/library/Button.module.css';
 
 type ButtonProps = {
@@ -33,6 +35,11 @@ type ButtonProps = {
   size?: string;
 
   /**
+   * The name of the icon to be displayed on the button
+   */
+  icon?: string;
+
+  /**
    * The children of the button component
    */
   children?: React.ReactNode;
@@ -47,6 +54,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   disabled = false,
   type = 'button',
   size = 'medium',
+  icon,
   children,
   onClick = () => {},
 }: ButtonProps) => {
@@ -111,6 +119,17 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     return `bg-${color} active:bg-${color}-dark text-white`;
   })();
 
+  const renderIcon = () => {
+    const marginRight = !_isEmpty(children) ? '8px' : null;
+
+    /**
+     * Render the icon if ht eprop is present
+     */
+    if (icon) {
+      return <Icon name={icon} marginRight={marginRight} />;
+    }
+  };
+
   /**
    * Render the button
    */
@@ -121,12 +140,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
       disabled={disabled}
       onClick={() => onClick()}
     >
-      {/* <l-icon
-      v-if="!isEmpty(icon)"
-      :name="icon"
-      :class="{ 'text-base': size === 'medium', 'text-sm': size === 'small' }"
-      :margin-right="hasSlot('default') ? '6px' : ''"
-    /> */}
+      {renderIcon()}
       {children}
     </button>
   );
