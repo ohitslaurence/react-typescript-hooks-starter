@@ -54,10 +54,10 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
    * The base class for the button, applied in all configurations
    */
   const baseClass: string =
-    'outline-none relative normal-case tracking-wide font-semibold rounded shadow-xl';
+    'outline-none relative normal-case tracking-wide font-semibold rounded shadow-xl no-select';
 
   /**
-   * Determines the class that modify the cursor of the button
+   * Determines the class that modifies the cursor of the button
    *
    * @return {string}
    */

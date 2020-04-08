@@ -2,13 +2,15 @@ import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 
 import styles from '../assets/css/pages/ComponentsPage.module.css';
-import { Page, Button, Card } from '../components/library';
+import { Page, Button, Card, DocumentTitle } from '../components/library';
 
 export const ComponentsPage: React.FunctionComponent<RouteComponentProps> = (
   props: RouteComponentProps
 ) => {
   return (
     <Page>
+      <DocumentTitle pageTitle="Components" />
+
       <div className="mb-6">
         <Card header="Buttons">
           <div className={styles.buttonSeperator}>
