@@ -1,5 +1,6 @@
 export { Button } from './Button';
-export { Page } from './Page';
+export { Card } from './Card';
 export { Input } from './Input';
-export { SideBar } from './SideBar';
+export { Page } from './Page';
 export { RouteMenuItem } from './RouteMenuItem';
+export { SideBar } from './SideBar';

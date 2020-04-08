@@ -1,0 +1,9 @@
+.buttonSeperator>* {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.formSeperator>* {
+  margin-bottom: 10px;
+
+}
