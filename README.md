@@ -24,7 +24,7 @@ React Typescript Hooks Starter
 To download this repo, simply run the following command
 
 ```bash
-$ git clone https://github.com/ohitslaurence/my-moods-app.git
+$ git clone https://github.com/ohitslaurence/react-typescript-hooks-starter.git
 ```
 
 ## Install
