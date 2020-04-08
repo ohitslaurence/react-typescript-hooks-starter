@@ -10,6 +10,7 @@ import { RegisterPage } from './pages/RegisterPage';
 import { ComponentsPage } from './pages/ComponentsPage';
 
 import { setTheme } from './utils/theme';
+import 'notyf/notyf.min.css';
 import './App.css';
 
 function App() {

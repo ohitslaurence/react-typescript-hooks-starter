@@ -2,11 +2,12 @@ import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 
 import styles from '../assets/css/pages/ComponentsPage.module.css';
-import { Page, Button, Card, DocumentTitle } from '../components/library';
+import { Page, Button, Card, DocumentTitle, useToast } from '../components/library';
 
 export const ComponentsPage: React.FunctionComponent<RouteComponentProps> = (
   props: RouteComponentProps
 ) => {
+  const { notifyError, notifySuccess, notifyWarning } = useToast();
   return (
     <Page>
       <DocumentTitle pageTitle="Components" />
@@ -33,6 +34,10 @@ export const ComponentsPage: React.FunctionComponent<RouteComponentProps> = (
             <Button outline color="positive">
               Positive Outline
             </Button>
+            <Button color="negative">Negative</Button>
+            <Button outline color="negative">
+              Negative Outline
+            </Button>
             <Button color="warning">Warning</Button>
             <Button outline color="warning">
               Warning Outline
@@ -53,6 +58,31 @@ export const ComponentsPage: React.FunctionComponent<RouteComponentProps> = (
       <div className="mb-6">
         <Card header="Forms">
           <Button>Test</Button>
+        </Card>
+      </div>
+
+      <div className="mb-6">
+        <Card header="Toast Notifications">
+          <div className={styles.buttonSeperator}>
+            <Button
+              color="positive"
+              onClick={() => notifySuccess('The actions was performed successfully')}
+            >
+              Success Toast
+            </Button>
+            <Button
+              color="negative"
+              onClick={() => notifyError('There was an error completing the action')}
+            >
+              Error Toast
+            </Button>
+            <Button
+              color="warning"
+              onClick={() => notifyWarning('There could be an error if you proceed')}
+            >
+              Warning Toast
+            </Button>
+          </div>
         </Card>
       </div>
     </Page>

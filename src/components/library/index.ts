@@ -6,3 +6,4 @@ export { Input } from './Input';
 export { Page } from './Page';
 export { RouteMenuItem } from './RouteMenuItem';
 export { SideBar } from './SideBar';
+export { useToast } from './Toast';
