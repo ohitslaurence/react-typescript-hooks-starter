@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { isEmpty as _isEmpty } from 'lodash';
+import { Icon } from './Icon';
 import styles from 'assets/css/library/Input.module.css';
 
 type InputProps = {
@@ -71,12 +72,14 @@ export const Input: React.FunctionComponent<InputProps> = ({
    * Function to render the icon inside the input if an icon name is given
    */
   const renderIcon = () => {
-    if (!_isEmpty(icon)) {
+    if (icon) {
       return (
         <div
           v-if="icon"
           className={`input-prepend ${focusClass} ${prependClass} ${styles.inputPrepend}`}
-        ></div>
+        >
+          <Icon name={icon} className="text-base" />
+        </div>
       );
     }
   };
