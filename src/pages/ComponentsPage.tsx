@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ButtonsExample } from '../components/examples/ButtonsExample';
 import { FormsExample } from '../components/examples/FormsExample';
+import { FormValidationExample } from '../components/examples/FormValidationExample';
 import { ToastsExample } from '../components/examples/ToastsExample';
 import { Page, Card, DocumentTitle } from '../components/library';
 
@@ -23,8 +24,14 @@ export const ComponentsPage: React.FunctionComponent<RouteComponentProps> = (
       </div>
 
       <div className="mb-6">
-        <Card header={t('components.forms')}>
+        <Card header={t('components.form_components')}>
           <FormsExample />
+        </Card>
+      </div>
+
+      <div className="mb-6">
+        <Card header={t('components.form_validation')}>
+          <FormValidationExample />
         </Card>
       </div>
 

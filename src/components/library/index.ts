@@ -1,6 +1,7 @@
 export { Button } from './Button';
 export { Card } from './Card';
 export { DocumentTitle } from './DocumentTitle';
+export { Form } from './Form';
 export { FormItem } from './FormItem';
 export { Icon } from './Icon';
 export { Input } from './Input';

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { isEmpty as _isEmpty } from 'lodash';
+import { useFormContext, CustomElement } from 'react-hook-form';
 import { Icon } from './Icon';
 import styles from 'assets/css/library/Input.module.css';
 
@@ -25,6 +26,21 @@ type InputProps = {
   value?: string;
 
   /**
+   * The name of the form element for validation
+   */
+  name?: string;
+
+  /**
+   * Function to validate the contents of the form element
+   */
+  validation?: (value: any) => boolean;
+
+  /**
+   * Message to be displayed when the firm item is invalid
+   */
+  validationMessage?: string;
+
+  /**
    * Fuction to run when the input is changed
    */
   onChange?: (val: string) => void;
@@ -35,8 +51,21 @@ export const Input: React.FunctionComponent<InputProps> = ({
   placeholder = '',
   icon,
   type = 'text',
+  name,
+  validation,
+  validationMessage = 'This field is not valid',
   onChange = (val) => {},
 }: InputProps) => {
+  /**
+   * Get the form context from the form
+   */
+  const context = useFormContext();
+
+  /**
+   * Has the field been validated?
+   */
+  const isValid = name && context.errors[name] ? false : true;
+
   /**
    * The focused state of the input
    */
@@ -69,6 +98,24 @@ export const Input: React.FunctionComponent<InputProps> = ({
   const focusClass: string = focus ? 'border-primary' : '';
 
   /**
+   * The class applied to the various elements when the form item is invalid
+   */
+  const validationClass: string = !isValid ? 'border-negative' : '';
+
+  /**
+   * Props to be added to the native input for form validation
+   */
+  const formInputProps: {
+    name?: string;
+    ref?: (
+      ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | CustomElement | null
+    ) => void;
+  } = {};
+
+  if (name) formInputProps.name = name;
+  if (name && validation) formInputProps.ref = context.register({ validate: validation });
+
+  /**
    * Function to render the icon inside the input if an icon name is given
    */
   const renderIcon = () => {
@@ -76,9 +123,19 @@ export const Input: React.FunctionComponent<InputProps> = ({
       return (
         <div
           v-if="icon"
-          className={`input-prepend ${focusClass} ${prependClass} ${styles.inputPrepend}`}
+          className={`input-prepend ${focusClass} ${prependClass} ${styles.inputPrepend} ${validationClass}`}
         >
           <Icon name={icon} className="text-base" />
+        </div>
+      );
+    }
+  };
+
+  const renderValidationContainer = () => {
+    if (name && validation) {
+      return (
+        <div className={`text-negative text-xs ${styles.validationMessage}`}>
+          {name && context.errors[name] && validationMessage}
         </div>
       );
     }
@@ -88,18 +145,22 @@ export const Input: React.FunctionComponent<InputProps> = ({
    * Render the input element
    */
   return (
-    <div className={`${styles.inputGroup} ${groupClass} ${focusClass}`}>
-      {renderIcon()}
+    <div>
+      <div className={`${styles.inputGroup} ${groupClass} ${focusClass} ${validationClass}`}>
+        {renderIcon()}
 
-      <input
-        onFocus={() => setFocus(true)}
-        onBlur={() => setFocus(false)}
-        onChange={(event) => onChange(event.target.value)}
-        value={value}
-        placeholder={placeholder}
-        className={`${inputClass} ${iconClass} ${focusClass}`}
-        type={type}
-      />
+        <input
+          {...formInputProps}
+          onFocus={() => setFocus(true)}
+          onBlur={() => setFocus(false)}
+          onChange={(event) => onChange(event.target.value)}
+          value={value}
+          placeholder={placeholder}
+          className={`${inputClass} ${iconClass} ${focusClass} ${validationClass}`}
+          type={type}
+        />
+      </div>
+      {renderValidationContainer()}
     </div>
   );
 };

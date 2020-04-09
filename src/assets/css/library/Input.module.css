@@ -5,3 +5,8 @@
 .inputPrepend {
   width: 50px;
 }
+
+.validationMessage {
+  padding: 3px 0;
+  min-height: 25px;
+}
