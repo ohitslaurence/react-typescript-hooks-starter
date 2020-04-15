@@ -122,7 +122,6 @@ export const Input: React.FunctionComponent<InputProps> = ({
     if (icon) {
       return (
         <div
-          v-if="icon"
           className={`input-prepend ${focusClass} ${prependClass} ${styles.inputPrepend} ${validationClass}`}
         >
           <Icon name={icon} className="text-base" />
@@ -145,7 +144,7 @@ export const Input: React.FunctionComponent<InputProps> = ({
    * Render the input element
    */
   return (
-    <div>
+    <React.Fragment>
       <div className={`${styles.inputGroup} ${groupClass} ${focusClass} ${validationClass}`}>
         {renderIcon()}
 
@@ -161,6 +160,6 @@ export const Input: React.FunctionComponent<InputProps> = ({
         />
       </div>
       {renderValidationContainer()}
-    </div>
+    </React.Fragment>
   );
 };
