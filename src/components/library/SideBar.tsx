@@ -1,5 +1,6 @@
 import React, { useEffect, useState, forwardRef, useImperativeHandle, useCallback } from 'react';
 import cx from 'classnames';
+import { usePrevious } from 'utils/usePrevious';
 import styles from 'assets/css/library/SideBar.module.css';
 
 export type SideBarProps = {
@@ -19,6 +20,47 @@ export type SideBarProps = {
   ref?: React.RefObject<any>;
 };
 
+const breakpoint = 1024;
+
+/**
+ * Screen is being resized from mobile to web
+ *
+ * @param width
+ * @param prevWidth
+ *
+ * @return {}
+ */
+const resizingToWeb = (width: number, prevWidth: number | undefined): boolean => {
+  return width >= breakpoint && prevWidth !== undefined && prevWidth < breakpoint;
+};
+
+/**
+ * Screen is being resized from web to mobile
+ *
+ * @param {number} width
+ * @param {number | undefined} prevWidth
+ *
+ * @return {}
+ */
+const resizingToMobile = (width: number, prevWidth: number | undefined): boolean => {
+  return width < breakpoint && prevWidth !== undefined && prevWidth >= breakpoint;
+};
+
+/**
+ * Removes all classes affecting the main page offset
+ *
+ * @param {HTMLElement | null} page The main page as a html element
+ * @param {'left' | 'right'} orientation The orientation of the sidebar
+ *
+ * @return {void}
+ */
+const removePageLayoutClasses = (page: HTMLElement | null, orientation: string): void => {
+  if (page) {
+    page.classList.remove(`with-sidebar-${orientation}`);
+    page.classList.remove(`with-sidebar-${orientation}-mobile`);
+  }
+};
+
 export const SideBar: React.FunctionComponent<SideBarProps> = forwardRef(
   ({ orientation = 'left', children }, ref) => {
     /**
@@ -27,24 +69,32 @@ export const SideBar: React.FunctionComponent<SideBarProps> = forwardRef(
     const [open, setOpen] = useState(false);
 
     /**
+     * Holds the width of the screen
+     */
+    const [width, setWidth] = useState(window.innerWidth);
+
+    /**
+     * Track the width of the screen in the previous render
+     */
+    const prevWidth: number | undefined = usePrevious<number>(width);
+
+    /**
      * Function to progmatically open/close the sidebar
      */
     const toggleOpen = useCallback(() => {
       const page = document.getElementById('page-window');
-      const width = window.innerWidth;
 
-      if (open && page) {
-        page.classList.remove(`with-sidebar-${orientation}`);
-        page.classList.remove(`with-sidebar-${orientation}-mobile`);
+      if (open) {
+        removePageLayoutClasses(page, orientation);
       } else if (page) {
-        if (width > 1024) {
+        if (width > breakpoint) {
           page.classList.add(`with-sidebar-${orientation}`);
         } else {
           page.classList.add(`with-sidebar-${orientation}-mobile`);
         }
       }
       setOpen(!open);
-    }, [open, orientation]);
+    }, [open, orientation, width]);
 
     /**
      * Exposes the toggle function to the parent
@@ -64,16 +114,16 @@ export const SideBar: React.FunctionComponent<SideBarProps> = forwardRef(
      */
     useEffect(() => {
       const page = document.getElementById('page-window');
-      const width = window.innerWidth;
 
-      if (width >= 1024) {
+      if (width >= breakpoint) {
         if (page) page.classList.add(`with-sidebar-${orientation}`);
         setOpen(true);
       }
 
       return () => {
-        if (page) page.classList.remove(`with-sidebar-${orientation}`);
+        removePageLayoutClasses(page, orientation);
       };
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [orientation]);
 
     /**
@@ -83,14 +133,14 @@ export const SideBar: React.FunctionComponent<SideBarProps> = forwardRef(
       const page = document.getElementById('page-window');
 
       const resizeListener = () => {
-        const width = window.innerWidth;
+        setWidth(window.innerWidth);
 
-        if (width >= 1024 && !open) {
+        if (resizingToWeb(width, prevWidth) && !open) {
           setOpen(true);
           if (page) page.classList.add(`with-sidebar-${orientation}`);
-        } else if (width < 1024 && open) {
+        } else if (resizingToMobile(width, prevWidth) && open) {
           setOpen(false);
-          if (page) page.classList.remove(`with-sidebar-${orientation}`);
+          removePageLayoutClasses(page, orientation);
         }
       };
 
@@ -98,7 +148,7 @@ export const SideBar: React.FunctionComponent<SideBarProps> = forwardRef(
       return () => {
         window.removeEventListener('resize', resizeListener);
       };
-    }, [open, orientation]);
+    }, [open, orientation, prevWidth, width]);
 
     /**
      * Base class applied to sidebar in every state

@@ -44,6 +44,8 @@ type ButtonProps = {
    */
   children?: React.ReactNode;
 
+  className?: string;
+
   onClick?: () => void;
 };
 
@@ -54,6 +56,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   disabled = false,
   type = 'button',
   size = 'medium',
+  className = '',
   icon,
   children,
   onClick = () => {},
@@ -135,7 +138,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
    */
   return (
     <button
-      className={`${styles.btn} ${baseClass} ${btnClass} ${bgClass} ${sizeClass} ${cursorClass} ${widthClass}`}
+      className={`${className} ${styles.btn} ${baseClass} ${btnClass} ${bgClass} ${sizeClass} ${cursorClass} ${widthClass}`}
       type={type}
       disabled={disabled}
       onClick={() => onClick()}

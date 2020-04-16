@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { appName } from 'config';
 
 type DocumentTitleProps = {
   /**
@@ -11,11 +12,6 @@ type DocumentTitleProps = {
 export const DocumentTitle: React.FunctionComponent<DocumentTitleProps> = ({
   pageTitle,
 }: DocumentTitleProps) => {
-  /**
-   * The name of the app, defined in .env
-   */
-  const appName = process.env.REACT_APP_TITLE || '';
-
   /**
    * The title to be displayed in the document head
    */

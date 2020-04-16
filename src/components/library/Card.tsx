@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import styles from 'assets/css/library/Card.module.css';
 
 type CardProps = {
@@ -22,7 +23,9 @@ export const Card: React.FunctionComponent<CardProps> = ({
   /**
    * Padding around the Card body can optionally be removed
    */
-  const bodyPaddingClass: string = bodyPadding ? styles.cardBody : '';
+  const bodyPaddingClass: string = cx({
+    [styles.cardBody]: bodyPadding,
+  });
 
   /**
    * Render the component passed to the Header slot of the Card

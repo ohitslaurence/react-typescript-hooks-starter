@@ -27,6 +27,7 @@ export default {
   info_outline: 'Info Outline',
   last_name: 'Last Name',
   last_name_validation: 'Please enter your last name',
+  login: 'Login',
   password: 'Password',
   password_input: 'Password Input',
   password_validation: 'Password must be longer than 6 characters',

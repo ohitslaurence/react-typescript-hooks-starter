@@ -28,7 +28,9 @@ export const Form: React.FunctionComponent<FormProps> = ({
    */
   return (
     <FormContext {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
+      <form className="w-full px-6" onSubmit={methods.handleSubmit(onSubmit)}>
+        {children}
+      </form>
     </FormContext>
   );
 };

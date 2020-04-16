@@ -17,7 +17,8 @@ React Typescript Hooks Starter
 </p>
 </h1>
 
-<h4  align="center">A starter app using React, Context API, Typescript, Reach Router, i18Next and Tailwind CSS</h4>
+<h4  align="center">A starter app using React, Typescript, Reach Router, i18Next and Tailwind CSS</h4>
+<p align="center"><sub >Made with ❤️ by <a href="https://github.com/ohitslaurence">ohitslaurence</a></sub></p>
 
 ## Download
 
@@ -58,3 +59,19 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
+
+## Main Dependencies
+
+| Name & Link                                         | Description                                                                                                                                                                                                                                             |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [React](https://reactjs.org/)                       | A declarative, efficient, and flexible JavaScript library for building user interfaces.                                                                                                                                                                 |
+| [TailwindCSS](https://tailwindcss.com/)             | A utility-first CSS framework for rapidly building custom designs.                                                                                                                                                                                      |
+| [Reach Router](https://reach.tech/router)           | Reach Router is a small, simple router for React that borrows from React Router, Ember, and Preact Router. Reach Router has a small footprint, supports only simple route patterns by design, and has strong (but experimental) accessibility features. |
+| [i18Next](https://www.i18next.com/)                 | i18next goes beyond just providing the standard i18n features such as (plurals, context, interpolation, format). It provides you with a complete solution to localize your product from web to mobile and desktop.                                      |
+| [React Hook Form](https://react-hook-form.com/)     | Performant, flexible and extensible forms with easy-to-use validation.                                                                                                                                                                                  |
+| [Notyf](https://carlosroso.com/notyf/)              | A minimalistic, responsive, vanilla JavaScript library to show toast notifications.                                                                                                                                                                     |
+| [React Helmet](https://github.com/nfl/react-helmet) | A document head manager for React                                                                                                                                                                                                                       |
+| [Jest](https://github.com/pleerock/event-dispatch)  | Dispatching and listening for application events in Typescript                                                                                                                                                                                          |
+| [Axios](https://github.com/axios/axios)             | Promise based HTTP client for the browser and node.js                                                                                                                                                                                                   |
+| [Lodash](https://lodash.com/)                       | A modern JavaScript utility library delivering modularity, performance & extras.                                                                                                                                                                        |
+| [Jest](http://facebook.github.io/jest/)             | Delightful JavaScript Testing Library for unit and e2e tests                                                                                                                                                                                            |

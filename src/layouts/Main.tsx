@@ -41,6 +41,12 @@ export const Main: React.FunctionComponent<MainProps> = ({ children }: MainProps
           icon="puzzle-piece"
           iconColor="positive"
         />
+        <RouteMenuItem
+          name={t('components.login')}
+          path="/auth/login"
+          icon="lock"
+          iconColor="negative"
+        />
       </SideBar>
       <div id="page-window" className="bg-sec-background fixed inset-0 overflow-auto">
         <Button onClick={handleToggle}>Toggle</Button>
