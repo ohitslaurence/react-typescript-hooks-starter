@@ -1,5 +1,5 @@
 #page-window {
-  transition: all .15s ease-in-out;
+  transition: all 0.3s ease-in;
 }
 
 #page-window.with-sidebar-left {
@@ -8,4 +8,12 @@
 
 #page-window.with-sidebar-right {
   margin-right: var(--sidebar-width);
+}
+
+#page-window.with-sidebar-left-mobile {
+  transform: translateX(calc(var(--sidebar-width)));
+}
+
+#page-window.with-sidebar-right-mobile {
+  transform: translateX(calc(-1 * var(--sidebar-width)));
 }

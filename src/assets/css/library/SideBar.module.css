@@ -1,4 +1,14 @@
 .sidebar {
   width: var(--sidebar-width);
-  box-shadow: 0 0 2rem 0 rgba(136, 152, 170, .15);
+  box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+  transition: right 0.3s ease-in;
+  transition: left 0.3s ease-in;
+}
+
+.sidebar-left-hidden {
+  left: calc(-1 * var(--sidebar-width));
+}
+
+.sidebar-right-hidden {
+  right: calc(-1 * var(--sidebar-width));
 }
