@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import { isEmpty as _isEmpty } from 'lodash';
 import { Icon } from './Icon';
 import styles from 'assets/css/library/Button.module.css';
@@ -72,55 +73,49 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
    *
    * @return {string}
    */
-  const cursorClass: string = ((): string => {
-    return disabled ? 'cursor-not-allowed opacity-50' : '';
-  })();
+  const cursorClass: string = cx({
+    'cursor-not-allowed opacity-50': disabled,
+  });
 
   /**
    * Determines the classes that modify the width of the button
    *
    * @return {string}
    */
-  const widthClass: string = ((): string => {
-    return fullWidth ? 'w-full' : '';
-  })();
+  const widthClass: string = cx({
+    'w-full': fullWidth,
+  });
 
   /**
    * Determines the classes that modify the size of the button
    *
    * @return {string}
    */
-  const sizeClass: string = ((): string => {
-    if (size === 'medium') {
-      return 'text-xs px-4 py-2';
-    } else if (size === 'small') {
-      return 'text-xs px-3 py-1';
-    }
-    return '';
-  })();
+  const sizeClass: string = cx({
+    'text-xs px-4 py-2': size === 'medium',
+    'text-xs px-3 py-1': size === 'small',
+  });
 
   /**
    * Determines the classes that modify the border color of the button
    *
    * @return {string}
    */
-  const btnClass: string = ((): string => {
-    const outlineClass = outline ? 'outline-' : '';
-
-    return `btn-${outlineClass}${color}`;
-  })();
+  const btnClass: string = cx({
+    [`btn-outline-${color}`]: outline,
+    [`btn-${color}`]: !outline,
+  });
 
   /**
    * Determines the classes require for the background color of the button
    *
    * @return {string}
    */
-  const bgClass: string = ((): string => {
-    if (outline)
-      return `border-${color} text-${color} hover:text-white hover:bg-${color} active:shadow-none active:bg-${color}-dark`;
-
-    return `bg-${color} active:bg-${color}-dark text-white`;
-  })();
+  const bgClass: string = cx({
+    'hover:text-white active:shadow-none': outline,
+    [`border-${color} text-${color} hover:bg-${color} active:bg-${color}-dark`]: outline,
+    [`bg-${color} active:bg-${color}-dark text-white`]: !outline,
+  });
 
   const renderIcon = () => {
     const marginRight = !_isEmpty(children) ? '8px' : null;
