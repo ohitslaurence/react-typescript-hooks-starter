@@ -1,14 +1,14 @@
 import React from 'react';
 import { Router } from '@reach/router';
-import { ThemeProvider } from 'store/theme/context';
 
-import { DocumentTitle } from './components/library';
+import { ThemeProvider } from 'store/theme/context';
 import { Main } from './layouts/Main';
 import { Auth } from './layouts/Auth';
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { ComponentsPage } from './pages/ComponentsPage';
+import { DocumentTitle } from './components/library';
 
 import 'notyf/notyf.min.css';
 import './App.css';
