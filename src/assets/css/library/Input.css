@@ -1,12 +1,12 @@
-.inputGroup {
+.input-group {
   transition: all 0.25s ease-in-out;
 }
 
-.inputPrepend {
+.input-prepend {
   width: 50px;
 }
 
-.validationMessage {
+.validation-message {
   padding: 3px 0;
   min-height: 25px;
 }

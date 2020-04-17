@@ -1,4 +1,5 @@
 // postcss.config.js
+const whitelistPatterns = require('./purgeWhitelist');
 const purgecss = require('@fullhuman/postcss-purgecss');
 
 const tailwindcss = require('tailwindcss');
@@ -12,6 +13,13 @@ module.exports = {
       ? [
           purgecss({
             content: ['./src/**/*.html', './src/**/*.tsx', './src/**/*.ts'],
+            whitelist: [
+              'with-sidebar-left',
+              'with-sidebar-right',
+              'with-sidebar-left-mobile',
+              'with-sidebar-right-mobile',
+            ],
+            whitelistPatterns,
           }),
         ]
       : []),

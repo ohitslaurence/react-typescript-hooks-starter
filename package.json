@@ -35,9 +35,10 @@
     "test:dev": "react-scripts test",
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
-    "build:styles": "postcss src/assets/css/app.css -o src/App.css",
+    "start:styles": "postcss src/assets/css/app.css -o src/App.css",
+    "build:styles": "postcss src/assets/css/app.css -o src/App.css --env production",
     "prebuild": "yarn build:styles",
-    "prestart": "yarn build:styles"
+    "prestart": "yarn start:styles"
   },
   "eslintConfig": {
     "extends": "react-app"

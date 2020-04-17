@@ -2,7 +2,6 @@ import React from 'react';
 import { useMatch, navigate } from '@reach/router';
 
 import { Icon } from './Icon';
-import styles from 'assets/css/library/RouteMenuItem.module.css';
 
 type RouteMenuItemProps = {
   /**
@@ -85,7 +84,7 @@ export const RouteMenuItem: React.FunctionComponent<RouteMenuItemProps> = ({
    * Render the RouteMenuItem component
    */
   return (
-    <div onClick={handleNavigation} className={`${styles.menuItem} ${itemClass} ${activeClass}`}>
+    <div onClick={handleNavigation} className={`menu-item ${itemClass} ${activeClass}`}>
       <div className="flex items-center">
         {renderIcon()}
         {/* <div v-if="!isEmpty(icon)" style="width: 25px;margin-right:12px;text-align: center">

@@ -2,7 +2,6 @@ import React from 'react';
 import cx from 'classnames';
 import { isEmpty as _isEmpty } from 'lodash';
 import { Icon } from './Icon';
-import styles from 'assets/css/library/Button.module.css';
 
 type ButtonProps = {
   /**
@@ -133,7 +132,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
    */
   return (
     <button
-      className={`${className} ${styles.btn} ${baseClass} ${btnClass} ${bgClass} ${sizeClass} ${cursorClass} ${widthClass}`}
+      className={`btn ${className} ${baseClass} ${btnClass} ${bgClass} ${sizeClass} ${cursorClass} ${widthClass}`}
       type={type}
       disabled={disabled}
       onClick={() => onClick()}

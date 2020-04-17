@@ -1,7 +1,6 @@
 import React, { useEffect, useState, forwardRef, useImperativeHandle, useCallback } from 'react';
 import cx from 'classnames';
 import { usePrevious } from 'utils/usePrevious';
-import styles from 'assets/css/library/SideBar.module.css';
 
 export type SideBarProps = {
   /**
@@ -165,15 +164,15 @@ export const SideBar: React.FunctionComponent<SideBarProps> = forwardRef(
      */
     const orientationClass: string = cx('fixed', [`fixed-${orientation}`], {
       [`${orientation}-0`]: open,
-      [`${styles[`sidebar-${orientation}-hidden`]}`]: !open,
+      [`sidebar-${orientation}-hidden`]: !open,
     });
 
     /**
      * Render the SideBar component
      */
     return (
-      <aside className={`${styles.sidebar} ${baseClass} ${layoutClass} ${orientationClass}`}>
-        <div className="h-screen">{children}</div>
+      <aside className={`sidebar ${baseClass} ${layoutClass} ${orientationClass}`}>
+        <nav className="h-screen">{children}</nav>
       </aside>
     );
   }

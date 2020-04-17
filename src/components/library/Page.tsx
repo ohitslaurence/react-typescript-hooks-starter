@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from 'assets/css/library/Page.module.css';
 
 type PageProps = {
   children?: React.ReactNode;
@@ -16,9 +15,7 @@ export const Page: React.FunctionComponent<PageProps> = ({
 }: PageProps) => {
   const renderBanner = () => {
     if (banner) {
-      return (
-        <div v-if="banner" className={`${styles.banner} bg-${color} inset-x-0 top-0 fixed`}></div>
-      );
+      return <div v-if="banner" className={`banner bg-${color} inset-x-0 top-0 fixed`}></div>;
     }
   };
 

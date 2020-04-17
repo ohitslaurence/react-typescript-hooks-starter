@@ -48,10 +48,10 @@ export const Main: React.FunctionComponent<MainProps> = ({ children }: MainProps
           iconColor="negative"
         />
       </SideBar>
-      <div id="page-window" className="bg-sec-background fixed inset-0 overflow-auto">
+      <main id="page-window" className="bg-sec-background fixed inset-0 overflow-auto">
         <Button onClick={handleToggle}>Toggle</Button>
         {children}
-      </div>
+      </main>
     </div>
   );
 };

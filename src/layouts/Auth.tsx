@@ -9,5 +9,5 @@ interface AuthProps extends RouteComponentProps {
  * Layout component that can be used to wrap unauthenticated components
  */
 export const Auth: React.FunctionComponent<AuthProps> = ({ children }: AuthProps) => {
-  return <div className="auth-layout">{children}</div>;
+  return <main className="auth-layout">{children}</main>;
 };

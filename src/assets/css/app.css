@@ -1,5 +1,6 @@
 @import './tailwind.css';
 @import './typography.css';
+@import './library.css';
 @import './layout.css';
 
 .App {

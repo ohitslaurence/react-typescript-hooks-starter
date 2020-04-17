@@ -3,7 +3,7 @@
   border: 0;
 }
 
-.cardHeader {
+.card-header {
   padding: 1.25rem 1.5rem;
   margin-bottom: 0;
   font-weight: 500;
@@ -11,7 +11,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.cardBody {
+.card-body {
   flex: 1 1 auto;
   padding: 1.5rem;
 }

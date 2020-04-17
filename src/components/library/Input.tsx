@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { isEmpty as _isEmpty } from 'lodash';
 import { useFormContext, CustomElement } from 'react-hook-form';
 import { Icon } from './Icon';
-import styles from 'assets/css/library/Input.module.css';
 
 type InputProps = {
   /**
@@ -121,9 +120,7 @@ export const Input: React.FunctionComponent<InputProps> = ({
   const renderIcon = () => {
     if (icon) {
       return (
-        <div
-          className={`input-prepend ${focusClass} ${prependClass} ${styles.inputPrepend} ${validationClass}`}
-        >
+        <div className={`input-prepend ${focusClass} ${prependClass} ${validationClass}`}>
           <Icon name={icon} className="text-base" />
         </div>
       );
@@ -133,7 +130,7 @@ export const Input: React.FunctionComponent<InputProps> = ({
   const renderValidationContainer = () => {
     if (name && validation) {
       return (
-        <div className={`text-negative text-xs ${styles.validationMessage}`}>
+        <div className={`text-negative text-xs validation-message`}>
           {name && context.errors[name] && validationMessage}
         </div>
       );
@@ -145,7 +142,7 @@ export const Input: React.FunctionComponent<InputProps> = ({
    */
   return (
     <React.Fragment>
-      <div className={`${styles.inputGroup} ${groupClass} ${focusClass} ${validationClass}`}>
+      <div className={`input-group ${groupClass} ${focusClass} ${validationClass}`}>
         {renderIcon()}
 
         <input

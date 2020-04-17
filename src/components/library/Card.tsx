@@ -1,6 +1,5 @@
 import React from 'react';
 import cx from 'classnames';
-import styles from 'assets/css/library/Card.module.css';
 
 type CardProps = {
   children?: React.ReactNode;
@@ -24,7 +23,7 @@ export const Card: React.FunctionComponent<CardProps> = ({
    * Padding around the Card body can optionally be removed
    */
   const bodyPaddingClass: string = cx({
-    [styles.cardBody]: bodyPadding,
+    'card-body': bodyPadding,
   });
 
   /**
@@ -33,7 +32,7 @@ export const Card: React.FunctionComponent<CardProps> = ({
   const renderHeader = () => {
     if (header) {
       return (
-        <div className={styles.cardHeader}>
+        <div className="card-header">
           <div className="mb-0 flex">
             <div className="flex-1 flex items-center">{header}</div>
           </div>
