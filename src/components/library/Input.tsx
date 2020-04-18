@@ -89,7 +89,7 @@ export const Input: React.FunctionComponent<InputProps> = ({
   /**
    * Class to be applied based in the presence of an icon
    */
-  const iconClass: string = _isEmpty(icon) ? 'rounded' : 'rounded-r';
+  const iconClass: string = _isEmpty(icon) ? 'rounded' : 'rounded-r rounded-l-none';
 
   /**
    * Class to be applied when focus is given to the input

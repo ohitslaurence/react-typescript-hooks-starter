@@ -2,6 +2,10 @@
   transition: all 0.25s ease-in-out;
 }
 
+.input-group input {
+  -webkit-appearance: none;
+}
+
 .input-prepend {
   width: 50px;
 }

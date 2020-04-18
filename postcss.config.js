@@ -18,6 +18,8 @@ module.exports = {
               'with-sidebar-right',
               'with-sidebar-left-mobile',
               'with-sidebar-right-mobile',
+              'sidebar-left-hidden',
+              'sidebar-right-hidden',
             ],
             whitelistPatterns,
           }),
