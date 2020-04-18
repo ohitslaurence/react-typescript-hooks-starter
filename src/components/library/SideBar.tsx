@@ -55,8 +55,8 @@ const resizingToMobile = (width: number, prevWidth: number | undefined): boolean
  */
 const removePageLayoutClasses = (page: HTMLElement | null, orientation: string): void => {
   if (page) {
-    page.classList.remove(`with-sidebar-${orientation}`);
-    page.classList.remove(`with-sidebar-${orientation}-mobile`);
+    page.classList.remove(`with-sidebar-${orientation}-dx`);
+    page.classList.remove(`with-sidebar-${orientation}-mobile-dx`);
   }
 };
 
@@ -87,9 +87,9 @@ export const SideBar: React.FunctionComponent<SideBarProps> = forwardRef(
         removePageLayoutClasses(page, orientation);
       } else if (page) {
         if (width > breakpoint) {
-          page.classList.add(`with-sidebar-${orientation}`);
+          page.classList.add(`with-sidebar-${orientation}-dx`);
         } else {
-          page.classList.add(`with-sidebar-${orientation}-mobile`);
+          page.classList.add(`with-sidebar-${orientation}-mobile-dx`);
         }
       }
       setOpen(!open);
@@ -115,7 +115,7 @@ export const SideBar: React.FunctionComponent<SideBarProps> = forwardRef(
       const page = document.getElementById('page-window');
 
       if (width >= breakpoint) {
-        if (page) page.classList.add(`with-sidebar-${orientation}`);
+        if (page) page.classList.add(`with-sidebar-${orientation}-dx`);
         setOpen(true);
       }
 
@@ -136,7 +136,7 @@ export const SideBar: React.FunctionComponent<SideBarProps> = forwardRef(
 
         if (resizingToWeb(width, prevWidth) && !open) {
           setOpen(true);
-          if (page) page.classList.add(`with-sidebar-${orientation}`);
+          if (page) page.classList.add(`with-sidebar-${orientation}-dx`);
         } else if (resizingToMobile(width, prevWidth) && open) {
           setOpen(false);
           removePageLayoutClasses(page, orientation);
@@ -162,9 +162,9 @@ export const SideBar: React.FunctionComponent<SideBarProps> = forwardRef(
     /**
      * Classes to fix the component to the side of the page
      */
-    const orientationClass: string = cx('fixed', [`fixed-${orientation}`], {
+    const orientationClass: string = cx('fixed', [`fixed-${orientation}-dx`], {
       [`${orientation}-0`]: open,
-      [`sidebar-${orientation}-hidden`]: !open,
+      [`sidebar-${orientation}-hidden-dx`]: !open,
     });
 
     /**

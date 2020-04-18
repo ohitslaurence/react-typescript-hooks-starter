@@ -5,10 +5,18 @@
   transition: left 0.3s ease-in;
 }
 
-.sidebar-left-hidden {
+.fixed-left-dx {
+  left: 0;
+}
+
+.fixed-right-dx {
+  left: 0;
+}
+
+.sidebar-left-hidden-dx {
   left: calc(-1 * var(--sidebar-width));
 }
 
-.sidebar-right-hidden {
+.sidebar-right-hidden-dx {
   right: calc(-1 * var(--sidebar-width));
 }

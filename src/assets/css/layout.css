@@ -2,18 +2,18 @@
   transition: all 0.3s ease-in;
 }
 
-#page-window.with-sidebar-left {
+#page-window.with-sidebar-left-dx {
   margin-left: var(--sidebar-width);
 }
 
-#page-window.with-sidebar-right {
+#page-window.with-sidebar-right-dx {
   margin-right: var(--sidebar-width);
 }
 
-#page-window.with-sidebar-left-mobile {
+#page-window.with-sidebar-left-mobile-dx {
   transform: translateX(calc(var(--sidebar-width)));
 }
 
-#page-window.with-sidebar-right-mobile {
+#page-window.with-sidebar-right-mobile-dx {
   transform: translateX(calc(-1 * var(--sidebar-width)));
 }

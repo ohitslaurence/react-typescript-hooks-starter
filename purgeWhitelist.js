@@ -1,1 +1,10 @@
-module.exports = [/^border-/, /^bg-/, /^text-/, /fa-/, /^active:bg-/, /^hover:bg-/, /^hover:text-/];
+module.exports = [
+  /^border-/,
+  /^bg-/,
+  /^text-/,
+  /fa-/,
+  /^active:bg-/,
+  /^hover:bg-/,
+  /^hover:text-/,
+  /-dx$/,
+];

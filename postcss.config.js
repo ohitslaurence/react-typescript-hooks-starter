@@ -13,15 +13,9 @@ module.exports = {
       ? [
           purgecss({
             content: ['./src/**/*.html', './src/**/*.tsx', './src/**/*.ts'],
-            whitelist: [
-              'with-sidebar-left',
-              'with-sidebar-right',
-              'with-sidebar-left-mobile',
-              'with-sidebar-right-mobile',
-              'sidebar-left-hidden',
-              'sidebar-right-hidden',
-            ],
+            whitelist: [],
             whitelistPatterns,
+            defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g),
           }),
         ]
       : []),
